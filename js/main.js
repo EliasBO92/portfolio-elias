@@ -477,7 +477,7 @@ if (quizRoot) {
   let isLocked = false;
 
   const goNext = () => {
-    current = (current + 1) % quizQuestions.length;
+    current = (current + 1) % getQuizQuestions().length;
     renderQuestion();
   };
 
