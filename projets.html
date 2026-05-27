@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elias Ben-Othman | Projets</title>
+    <meta name="description" content="Projets informatiques d'Elias Ben-Othman: IA, web, Java, SQL et systèmes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Space+Grotesk:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Navigation principale">
+        <a class="brand" href="index.html"><span class="brand-mark">EB</span><span>Elias Ben-Othman</span></a>
+        <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="projets.html" aria-current="page">Projets</a></li>
+          <li><a href="parcours.html">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenu" class="page">
+      <section class="page-title">
+        <div class="container">
+          <p class="eyebrow">Réalisations</p>
+          <h1>Des projets étudiants avec de vraies contraintes.</h1>
+          <p class="lead">Voici une sélection structurée à partir de mon parcours en BUT Informatique: vision par ordinateur, applications de gestion, sites web, bases de données et système.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="filter-bar" aria-label="Filtrer les projets">
+            <button class="filter-btn is-active" type="button" data-filter="all">Tout</button>
+            <button class="filter-btn" type="button" data-filter="ai">IA</button>
+            <button class="filter-btn" type="button" data-filter="web">Web</button>
+            <button class="filter-btn" type="button" data-filter="software">Logiciel</button>
+            <button class="filter-btn" type="button" data-filter="data">Data</button>
+          </div>
+
+          <div class="grid three">
+            <article class="card project-card accent-green reveal" data-category="ai">
+              <div class="project-meta">2025-2026 · BUT 3</div>
+              <h3>Détection automatique de cartes de bridge</h3>
+              <p>Système combinant vision par ordinateur, IA et traitement vidéo pour enregistrer et analyser des parties de bridge à la demande d’un client.</p>
+              <div class="tag-list">
+                <span class="tag">Python</span>
+                <span class="tag">IA</span>
+                <span class="tag">Vidéo</span>
+                <span class="tag">HTML</span>
+                <span class="tag">Base de données</span>
+              </div>
+            </article>
+
+            <article class="card project-card accent-blue reveal" data-category="software">
+              <div class="project-meta">2024-2025 · BUT 2</div>
+              <h3>Application de gestion des Jeux Olympiques 2024</h3>
+              <p>Conception et développement d’une application Java avec fonctionnalités de planning, gestion de données et conduite de projet informatique.</p>
+              <div class="tag-list">
+                <span class="tag">Java</span>
+                <span class="tag">Gestion</span>
+                <span class="tag">Projet</span>
+              </div>
+            </article>
+
+            <article class="card project-card accent-coral reveal" data-category="web">
+              <div class="project-meta">2024-2025 · BUT 2</div>
+              <h3>Site de vote sur des lois proposées</h3>
+              <p>Site web connecté à une base de données permettant aux utilisateurs de voter, consulter des propositions et interagir avec les données.</p>
+              <div class="tag-list">
+                <span class="tag">PHP</span>
+                <span class="tag">HTML</span>
+                <span class="tag">SQL</span>
+              </div>
+            </article>
+
+            <article class="card project-card accent-gold reveal" data-category="software">
+              <div class="project-meta">2023-2024 · BUT 1</div>
+              <h3>Mini-ordinateur Raspberry Pi</h3>
+              <p>Installation, configuration et optimisation d’un mini-ordinateur, avec une approche système concrète et orientée usage.</p>
+              <div class="tag-list">
+                <span class="tag">Raspberry Pi</span>
+                <span class="tag">Système</span>
+                <span class="tag">Architecture</span>
+              </div>
+            </article>
+
+            <article class="card project-card accent-green reveal" data-category="data">
+              <div class="project-meta">2023-2024 · BUT 1</div>
+              <h3>Base de données client</h3>
+              <p>Modélisation et exploitation d’une base simulant les interactions client au sein d’une entreprise: requêtes, structuration et analyse.</p>
+              <div class="tag-list">
+                <span class="tag">SQL</span>
+                <span class="tag">Modélisation</span>
+                <span class="tag">Requêtes</span>
+              </div>
+            </article>
+
+            <article class="card project-card accent-blue reveal" data-category="web">
+              <div class="project-meta">2023-2024 · BUT 1</div>
+              <h3>Site pour une école fictive</h3>
+              <p>Création d’un site HTML/CSS avec structuration du contenu, design d’interface et adaptation aux besoins d’un établissement fictif.</p>
+              <div class="tag-list">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Interface</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-year></span> Elias Ben-Othman</p>
+        <div class="footer-links">
+          <a href="index.html">Accueil</a>
+          <a href="parcours.html">Parcours</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

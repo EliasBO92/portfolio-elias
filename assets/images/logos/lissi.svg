@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 384" role="img" aria-labelledby="title desc">
+  <title id="title">LiSSi</title>
+  <desc id="desc">Logo du Laboratoire Images, Signaux et Systemes Intelligents.</desc>
+  <rect width="840" height="384" fill="none"/>
+  <path d="M190 76C332-8 520-14 704 44" fill="none" stroke="#505050" stroke-width="5" stroke-linecap="round"/>
+  <path d="M320 80C456 2 614 0 794 72" fill="none" stroke="#6d6d6d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M600 100C690 205 706 272 690 354" fill="none" stroke="#777" stroke-width="16" stroke-linecap="round"/>
+  <path d="M790 98C650 304 394 398 54 296" fill="none" stroke="#be1550" stroke-width="9" stroke-linecap="round"/>
+  <text x="150" y="245" fill="#5a5a5a" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="800" letter-spacing="2">LiSSi</text>
+  <path d="M660 92l58 152" fill="none" stroke="#8a8a8a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M765 70l-92 180" fill="none" stroke="#b31a82" stroke-width="18" stroke-linecap="round"/>
+</svg>

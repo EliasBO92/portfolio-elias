@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elias Ben-Othman | Contact</title>
+    <meta name="description" content="Contacter Elias Ben-Othman pour stage, alternance ou projet informatique.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Space+Grotesk:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Navigation principale">
+        <a class="brand" href="index.html"><span class="brand-mark">EB</span><span>Elias Ben-Othman</span></a>
+        <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="parcours.html">Parcours</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenu" class="page">
+      <section class="page-title">
+        <div class="container">
+          <p class="eyebrow">Contact</p>
+          <h1>Parlons stage, alternance ou projet utile.</h1>
+          <p class="lead">Je suis ouvert aux opportunités liées au développement web, logiciel, données ou projets étudiants ambitieux.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container contact-layout">
+          <form class="card contact-form reveal" action="mailto:eliasbenothman1@gmail.com" method="post" enctype="text/plain">
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input id="nom" name="nom" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button class="button primary" type="submit">Envoyer le message</button>
+          </form>
+
+          <aside class="grid">
+            <article class="card accent-green reveal">
+              <h3>Coordonnées</h3>
+              <p>Email: <a href="mailto:eliasbenothman1@gmail.com">eliasbenothman1@gmail.com</a></p>
+              <p>Localisation: Île-de-France</p>
+              <p>LinkedIn: <a href="https://www.linkedin.com/in/elias-ben-othman-b8363a281/">elias-ben-othman</a></p>
+              <p>GitHub: <a href="https://github.com/EliasBO92">EliasBO92</a></p>
+            </article>
+            <article class="card accent-blue reveal">
+              <h3>CV</h3>
+              <p>Le CV original en anglais est disponible au format PDF.</p>
+              <div class="inline-actions">
+                <a class="button secondary" href="assets/docs/cv-elias-ben-othman-fr.pdf" data-cv-link download="CV-Elias-Ben-Othman-FR.pdf">Télécharger le CV</a>
+              </div>
+            </article>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-year></span> Elias Ben-Othman</p>
+        <div class="footer-links">
+          <a href="index.html">Accueil</a>
+          <a href="projets.html">Projets</a>
+          <a href="parcours.html">Parcours</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

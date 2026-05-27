@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elias Ben-Othman | Portfolio</title>
+    <meta name="description" content="Portfolio d'Elias Ben-Othman, étudiant en BUT Informatique à Paris-Saclay.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Space+Grotesk:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Navigation principale">
+        <a class="brand" href="index.html"><span class="brand-mark">EB</span><span>Elias Ben-Othman</span></a>
+        <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="parcours.html">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenu" class="page">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">BUT Informatique · Paris-Saclay</p>
+            <h1>Développeur junior qui aime comprendre avant de construire.</h1>
+            <p class="hero-lead">Je m’appelle Elias, j’ai 21 ans et je suis en troisième année de BUT Informatique à l’IUT d’Orsay. Je travaille sur des projets web, data, IA et logiciels avec une préférence pour les interfaces claires et les systèmes qui ont du sens.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#questionnaire">Me découvrir</a>
+              <a class="button secondary" href="assets/docs/cv-elias-ben-othman-fr.pdf" data-cv-link download="CV-Elias-Ben-Othman-FR.pdf">Télécharger le CV</a>
+            </div>
+          </div>
+
+          <aside class="profile-card" aria-label="Résumé du profil">
+            <div class="profile-top">
+              <div class="portrait-frame">
+                <img src="assets/images/photo-elias.png" alt="Portrait d'Elias Ben-Othman">
+                <div class="avatar" hidden aria-hidden="true">EB</div>
+              </div>
+              <div>
+                <h2>Elias Ben-Othman</h2>
+                <p>Étudiant en informatique, basé en Île-de-France.</p>
+              </div>
+            </div>
+            <div class="facts">
+              <div class="fact"><span>Formation</span><span>BUT Informatique 3e année</span></div>
+              <div class="fact"><span>Université</span><span>Paris-Saclay</span></div>
+              <div class="fact"><span>Focus</span><span>Web · IA · SQL</span></div>
+              <div class="fact"><span>Langues</span><span>FR · EN · ES</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="questionnaire" class="quiz" data-quiz>
+        <div class="container">
+          <div class="quiz-shell reveal">
+            <div class="quiz-head">
+              <div>
+                <p class="eyebrow">Questionnaire rapide</p>
+                <h2>Pour mieux me connaître</h2>
+              </div>
+              <div class="quiz-progress" aria-hidden="true"><span data-progress></span></div>
+            </div>
+            <div class="quiz-body">
+              <div>
+                <p class="question-title" data-question></p>
+                <div class="quiz-options" data-options></div>
+              </div>
+              <aside class="answer-panel">
+                <h3 data-feedback-title>Choisis une réponse</h3>
+                <p data-answer>Le questionnaire avance seulement après ton choix.</p>
+                <button class="continue-card" type="button" data-continue hidden>
+                  <span data-continue-label>Clique ici pour continuer</span>
+                </button>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Ce que je peux apporter.</h2>
+            <p>Un profil encore en formation, mais déjà habitué à passer de l’idée au prototype: comprendre le besoin, organiser les données, coder proprement et présenter le résultat.</p>
+          </div>
+          <div class="grid three">
+            <article class="card accent-green reveal">
+              <h3>Développement logiciel</h3>
+              <p>Deux stages chez Auxia dans la même équipe, avec progression, logique applicative et découverte des exigences d’un environnement professionnel.</p>
+            </article>
+            <article class="card accent-blue reveal">
+              <h3>Recherche & signaux</h3>
+              <p>Stage au Laboratoire Images, Signaux & Systèmes Intelligents, avec un contexte technique lié à l’analyse et aux systèmes intelligents.</p>
+            </article>
+            <article class="card accent-coral reveal">
+              <h3>Contact & terrain</h3>
+              <p>Expériences chez Monoprix et Paul: relation client, autonomie, rythme d’équipe et sens du service.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-year></span> Elias Ben-Othman</p>
+        <div class="footer-links">
+          <a href="projets.html">Projets</a>
+          <a href="parcours.html">Parcours</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
