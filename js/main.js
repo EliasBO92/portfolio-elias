@@ -482,12 +482,12 @@ if (quizRoot) {
   };
 
   renderQuestion = () => {
-    const quizQuestions = getQuizQuestions();
-    if (current >= quizQuestions.length) {
+    const questions = getQuizQuestions();
+    if (current >= questions.length) {
       current = 0;
     }
 
-    const item = quizQuestions[current];
+    const item = questions[current];
     isLocked = false;
     questionText.textContent = item.question;
     feedbackTitle.textContent = currentLanguage === "en" ? "Choose an answer" : "Choisis une réponse";
@@ -495,7 +495,7 @@ if (quizRoot) {
     answerPanel.classList.remove("is-revealed", "is-wrong", "is-correct");
     continueButton.hidden = true;
     continueButton.classList.remove("is-wrong", "is-correct");
-    progress.style.width = `${((current + 1) / quizQuestions.length) * 100}%`;
+    progress.style.width = `${((current + 1) / questions.length) * 100}%`;
 
     optionsBox.innerHTML = "";
     item.options.forEach((option, index) => {
