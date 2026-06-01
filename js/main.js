@@ -109,6 +109,21 @@ const translations = {
     "Obtention du diplôme national du brevet avec mention très bien.": "French lower secondary certificate obtained with highest honors.",
     "Profil en quelques lignes": "Profile in a few lines",
     "Je suis à l’aise dans les environnements où il faut apprendre, tester, corriger et expliquer. Mes expériences de vente et de stage m’ont aussi donné une meilleure compréhension du terrain et du contact humain.": "I am comfortable in environments where I need to learn, test, correct and explain. My sales and internship experiences also gave me a better understanding of field work and human contact.",
+    "Carte des lieux": "Location map",
+    "Carte des lieux du parcours d'Elias": "Map of Elias’s path locations",
+    "Choisir un lieu à afficher sur la carte": "Choose a place to show on the map",
+    "Carte IUT d’Orsay": "IUT Orsay map",
+    "IUT d’Orsay": "IUT Orsay",
+    "IUT d’Orsay · Formation informatique et parcours scientifique": "IUT Orsay · Computer science training and scientific path",
+    "Orsay": "Orsay",
+    "Malakoff": "Malakoff",
+    "Vitry": "Vitry",
+    "Antony": "Antony",
+    "IUT d’Orsay, Paris-Saclay, PASS et Mesures Physiques": "IUT Orsay, Paris-Saclay, PASS and Physical Measurements",
+    "Auxia, Malakoff Humanis": "Auxia, Malakoff Humanis",
+    "Vitry-sur-Seine": "Vitry-sur-Seine",
+    "Laboratoire Images, Signaux & Systèmes Intelligents": "Images, Signals and Intelligent Systems Laboratory",
+    "Monoprix et Boulangerie Paul": "Monoprix and Paul Bakery",
     "22 ans": "22 years old",
     "Permis B": "Driving license",
     "Anglais B1/B2": "English B1/B2",
@@ -248,6 +263,7 @@ const setLanguage = (lang) => {
   updateLanguageSwitcher(lang);
   updateDocumentTitle(lang);
   updateCvLinks(lang);
+  updateMapWidgetsLanguage();
 
   if (typeof renderQuestion === "function") {
     renderQuestion();
@@ -285,6 +301,99 @@ const updateCvLinks = (lang) => {
 };
 
 createLanguageSwitcher();
+
+const mapLocations = {
+  iut: {
+    label: { fr: "IUT d’Orsay", en: "IUT Orsay" },
+    title: { fr: "Carte IUT d’Orsay", en: "IUT Orsay map" },
+    caption: {
+      fr: "IUT d’Orsay · Formation informatique et parcours scientifique",
+      en: "IUT Orsay · Computer science training and scientific path"
+    },
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.6707449933006!2d2.1679631765556637!3d48.711773871312666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8038e45f7c42fa25%3A0x9e4ad94895fa7e30!2zSVVUIGTigJlPcnNheQ!5e0!3m2!1sfr!2sfr!4v1780352961159!5m2!1sfr!2sfr"
+  },
+  auxia: {
+    label: { fr: "Auxia", en: "Auxia" },
+    title: { fr: "Carte Auxia", en: "Auxia map" },
+    caption: {
+      fr: "Auxia · Stages en développement logiciel",
+      en: "Auxia · Software development internships"
+    },
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.3154537216433!2d2.3686577!3d48.833121299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67221a7965d47%3A0xa3ad93d153bcd6f1!2s2%20Rue%20Clisson%2C%2075013%20Paris!5e0!3m2!1sfr!2sfr!4v1780352895001!5m2!1sfr!2sfr"
+  },
+  lissi: {
+    label: { fr: "LISSI", en: "LISSI" },
+    title: { fr: "Carte LISSI", en: "LISSI map" },
+    caption: {
+      fr: "LISSI · Stage laboratoire images, signaux et systèmes intelligents",
+      en: "LISSI · Images, signals and intelligent systems laboratory internship"
+    },
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2629.266524282921!2d2.3707830895670376!3d48.776801797375064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e673f6425dd35f%3A0x4192bace2d95fbaa!2sLaboratoire%20Images%2C%20Signaux%20Et%20Syst%C3%A8mes%20Intel...!5e0!3m2!1sfr!2sfr!4v1780352929445!5m2!1sfr!2sfr"
+  },
+  monoprix: {
+    label: { fr: "Monoprix", en: "Monoprix" },
+    title: { fr: "Carte Monoprix Antony", en: "Monoprix Antony map" },
+    caption: {
+      fr: "Monoprix Antony · Expérience employé polyvalent",
+      en: "Monoprix Antony · Versatile employee experience"
+    },
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.469123087246!2d2.3010546765579565!3d48.753836971318165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67719cd501831%3A0x47e82fe6cf803031!2sMONOPRIX!5e0!3m2!1sfr!2sfr!4v1780352989557!5m2!1sfr!2sfr"
+  },
+  paul: {
+    label: { fr: "Paul", en: "Paul" },
+    title: { fr: "Carte Paul Antony", en: "Paul Antony map" },
+    caption: {
+      fr: "Paul Antony · Stage d’observation",
+      en: "Paul Antony · Observation internship"
+    },
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.501144961851!2d2.3028933765579533!3d48.75322537131813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67719a848275d%3A0xacfc6746452f42bb!2sPAUL!5e0!3m2!1sfr!2sfr!4v1780353010158!5m2!1sfr!2sfr"
+  }
+};
+
+const mapWidgets = document.querySelectorAll("[data-map-widget]");
+
+const setMapLocation = (widget, mapId) => {
+  const location = mapLocations[mapId] || mapLocations.iut;
+  const frame = widget.querySelector("[data-map-frame]");
+  const caption = widget.querySelector("[data-map-caption]");
+
+  widget.querySelectorAll("[data-map]").forEach((button) => {
+    const isActive = button.dataset.map === mapId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  if (frame) {
+    frame.src = location.src;
+    frame.title = location.title[currentLanguage] || location.title.fr;
+  }
+
+  if (caption) {
+    caption.textContent = location.caption[currentLanguage] || location.caption.fr;
+  }
+};
+
+const updateMapWidgetsLanguage = () => {
+  mapWidgets.forEach((widget) => {
+    widget.querySelectorAll("[data-map]").forEach((button) => {
+      const location = mapLocations[button.dataset.map];
+      if (location) {
+        button.textContent = location.label[currentLanguage] || location.label.fr;
+      }
+    });
+
+    const activeMap = widget.querySelector(".map-tab.is-active")?.dataset.map || "iut";
+    setMapLocation(widget, activeMap);
+  });
+};
+
+mapWidgets.forEach((widget) => {
+  widget.querySelectorAll("[data-map]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setMapLocation(widget, button.dataset.map);
+    });
+  });
+});
 
 const reveals = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver(
