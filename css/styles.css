@@ -750,6 +750,10 @@ h1 {
   gap: 14px;
 }
 
+.hidden-field {
+  display: none;
+}
+
 .field {
   display: grid;
   gap: 6px;
@@ -772,6 +776,47 @@ h1 {
 .field textarea {
   min-height: 150px;
   resize: vertical;
+}
+
+.contact-links {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.contact-link {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: grid;
+  gap: 3px;
+  padding: 12px;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.contact-link span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.contact-link strong {
+  color: var(--blue);
+  overflow-wrap: anywhere;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  border-color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  outline: none;
+  transform: translate(-2px, -2px);
+}
+
+.contact-link:hover strong,
+.contact-link:focus-visible strong {
+  color: var(--green);
 }
 
 .site-footer {

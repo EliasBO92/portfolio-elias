@@ -38,7 +38,11 @@
 
       <section class="section">
         <div class="container contact-layout">
-          <form class="card contact-form reveal" action="mailto:eliasbenothman1@gmail.com" method="post" enctype="text/plain">
+          <form class="card contact-form reveal" name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field" data-contact-form>
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden-field">
+              <label>Ne pas remplir <input name="bot-field"></label>
+            </p>
             <div class="field">
               <label for="nom">Nom</label>
               <input id="nom" name="nom" type="text" autocomplete="name" required>
@@ -57,14 +61,28 @@
           <aside class="grid">
             <article class="card accent-green reveal">
               <h3>Coordonnées</h3>
-              <p>Email: <a href="mailto:eliasbenothman1@gmail.com">eliasbenothman1@gmail.com</a></p>
-              <p>Localisation: Île-de-France</p>
-              <p>LinkedIn: <a href="https://www.linkedin.com/in/elias-ben-othman-b8363a281/">elias-ben-othman</a></p>
-              <p>GitHub: <a href="https://github.com/EliasBO92">EliasBO92</a></p>
+              <div class="contact-links">
+                <a class="contact-link" href="mailto:eliasbenothman1@gmail.com">
+                  <span>Email</span>
+                  <strong>eliasbenothman1@gmail.com</strong>
+                </a>
+                <a class="contact-link" href="https://www.google.com/maps/search/?api=1&query=Antony%2C%20%C3%8Ele-de-France" target="_blank" rel="noreferrer">
+                  <span>Localisation</span>
+                  <strong>Antony, Île-de-France</strong>
+                </a>
+                <a class="contact-link" href="https://www.linkedin.com/in/elias-ben-othman-b8363a281/" target="_blank" rel="noreferrer">
+                  <span>LinkedIn</span>
+                  <strong>elias-ben-othman</strong>
+                </a>
+                <a class="contact-link" href="https://github.com/EliasBO92" target="_blank" rel="noreferrer">
+                  <span>GitHub</span>
+                  <strong>EliasBO92</strong>
+                </a>
+              </div>
             </article>
             <article class="card accent-blue reveal">
               <h3>CV</h3>
-              <p>Le CV original en anglais est disponible au format PDF.</p>
+              <p>Le CV est disponible au format PDF.</p>
               <div class="inline-actions">
                 <a class="button secondary" href="assets/docs/cv-elias-ben-othman-fr.pdf" data-cv-link download="CV-Elias-Ben-Othman-FR.pdf">Télécharger le CV</a>
               </div>
