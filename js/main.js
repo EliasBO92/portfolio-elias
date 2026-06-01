@@ -252,6 +252,8 @@ const setLanguage = (lang) => {
   if (typeof renderQuestion === "function") {
     renderQuestion();
   }
+
+  window.dispatchEvent(new CustomEvent("portfolio-language-change"));
 };
 
 const updateDocumentTitle = (lang) => {
@@ -548,6 +550,73 @@ if (quizRoot) {
 }
 
 setLanguage(currentLanguage);
+
+const timeline = document.querySelector(".timeline");
+
+if (timeline) {
+  const map = timeline.querySelector(".timeline-map");
+  const path = timeline.querySelector("[data-timeline-path]");
+  const dots = timeline.querySelector("[data-timeline-dots]");
+  const isCompactTimeline = () => window.matchMedia("(max-width: 880px)").matches;
+
+  const drawTimelinePath = () => {
+    if (!map || !path || !dots) {
+      return;
+    }
+
+    const items = Array.from(timeline.querySelectorAll(".timeline-item"));
+
+    if (isCompactTimeline() || items.length < 2) {
+      path.setAttribute("d", "");
+      dots.replaceChildren();
+      return;
+    }
+
+    const timelineRect = timeline.getBoundingClientRect();
+    map.setAttribute("viewBox", `0 0 ${timelineRect.width} ${timelineRect.height}`);
+
+    const points = items.map((item, index) => {
+      const rect = item.getBoundingClientRect();
+      const isLeft = index % 2 === 0;
+      const x = (isLeft ? rect.right : rect.left) - timelineRect.left + (isLeft ? 18 : -18);
+      const y = rect.top - timelineRect.top + Math.min(42, rect.height / 2);
+      return { x, y };
+    });
+
+    const d = points.slice(1).reduce((commands, point, index) => {
+      const previous = points[index];
+      const centerX = (previous.x + point.x) / 2;
+      return `${commands} C ${centerX},${previous.y} ${centerX},${point.y} ${point.x},${point.y}`;
+    }, `M ${points[0].x},${points[0].y}`);
+
+    path.setAttribute("d", d);
+    dots.replaceChildren(
+      ...points.flatMap((point) => {
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", point.x);
+        circle.setAttribute("cy", point.y);
+        circle.setAttribute("r", "9");
+
+        const core = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        core.classList.add("timeline-dot-core");
+        core.setAttribute("cx", point.x);
+        core.setAttribute("cy", point.y);
+        core.setAttribute("r", "4");
+
+        return [circle, core];
+      })
+    );
+  };
+
+  const scheduleTimelinePath = () => window.requestAnimationFrame(drawTimelinePath);
+
+  window.addEventListener("load", scheduleTimelinePath);
+  window.addEventListener("resize", scheduleTimelinePath);
+  window.addEventListener("scroll", scheduleTimelinePath, { passive: true });
+  window.addEventListener("portfolio-language-change", scheduleTimelinePath);
+  setTimeout(drawTimelinePath, 120);
+  setTimeout(drawTimelinePath, 640);
+}
 
 const contactForm = document.querySelector("[data-contact-form]");
 
