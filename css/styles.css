@@ -778,6 +778,16 @@ h1 {
   resize: vertical;
 }
 
+.form-status {
+  color: var(--green);
+  font-weight: 900;
+  margin: 0;
+}
+
+.form-status.is-error {
+  color: var(--coral);
+}
+
 .contact-links {
   display: grid;
   gap: 10px;

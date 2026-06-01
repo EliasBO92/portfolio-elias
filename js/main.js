@@ -138,7 +138,9 @@ const translations = {
     "Musique": "Music",
     "Parlons stage, alternance ou projet utile.": "Let’s talk internship, work-study or useful project.",
     "Je suis ouvert aux opportunités liées au développement web, logiciel, données ou projets étudiants ambitieux.": "I am open to opportunities related to web development, software, data or ambitious student projects.",
-    "Ne pas remplir": "Do not fill this in"
+    "Ne pas remplir": "Do not fill this in",
+    "Message envoyé, merci pour votre prise de contact.": "Message sent, thank you for getting in touch.",
+    "Envoi impossible pour le moment. Vous pouvez me contacter directement par email.": "Unable to send right now. You can contact me directly by email."
   }
 };
 
@@ -546,6 +548,56 @@ if (quizRoot) {
 }
 
 setLanguage(currentLanguage);
+
+const contactForm = document.querySelector("[data-contact-form]");
+
+if (contactForm) {
+  const status = contactForm.querySelector("[data-contact-status]");
+  const submitButton = contactForm.querySelector("button[type='submit']");
+  const encodeFormData = (data) => new URLSearchParams(data).toString();
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    if (status) {
+      status.classList.remove("is-error");
+      status.textContent = "";
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeFormData(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      contactForm.reset();
+
+      if (status) {
+        status.textContent = translateText("Message envoyé, merci pour votre prise de contact.", currentLanguage);
+      }
+    } catch (error) {
+      if (status) {
+        status.classList.add("is-error");
+        status.textContent = translateText("Envoi impossible pour le moment. Vous pouvez me contacter directement par email.", currentLanguage);
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
+  });
+}
 
 const year = document.querySelector("[data-year]");
 
