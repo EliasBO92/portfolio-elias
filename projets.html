@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Space+Grotesk:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=6">
-    <script src="js/main.js?v=4" defer></script>
+    <link rel="stylesheet" href="css/styles.css?v=10">
+    <script src="js/main.js?v=9" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -47,7 +47,7 @@
           </div>
 
           <div class="grid three">
-            <article class="card project-card accent-green reveal" data-category="ai">
+            <article class="card project-card accent-green reveal" data-category="ai" data-project="bridge" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="project-dialog">
               <div class="project-meta">2025-2026 · BUT 3</div>
               <h3>Détection automatique de cartes de bridge</h3>
               <p>Système combinant vision par ordinateur, IA et traitement vidéo pour enregistrer et analyser des parties de bridge à la demande d’un client.</p>
@@ -58,9 +58,10 @@
                 <span class="tag">HTML</span>
                 <span class="tag">Base de données</span>
               </div>
+              <span class="project-more">Voir le détail</span>
             </article>
 
-            <article class="card project-card accent-blue reveal" data-category="software">
+            <article class="card project-card accent-blue reveal" data-category="software" data-project="jo2024" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="project-dialog">
               <div class="project-meta">2024-2025 · BUT 2</div>
               <h3>Application de gestion des Jeux Olympiques 2024</h3>
               <p>Conception et développement d’une application Java avec fonctionnalités de planning, gestion de données et conduite de projet informatique.</p>
@@ -69,9 +70,10 @@
                 <span class="tag">Gestion</span>
                 <span class="tag">Projet</span>
               </div>
+              <span class="project-more">Voir le détail</span>
             </article>
 
-            <article class="card project-card accent-coral reveal" data-category="web">
+            <article class="card project-card accent-coral reveal" data-category="web" data-project="vote" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="project-dialog">
               <div class="project-meta">2024-2025 · BUT 2</div>
               <h3>Site de vote sur des lois proposées</h3>
               <p>Site web connecté à une base de données permettant aux utilisateurs de voter, consulter des propositions et interagir avec les données.</p>
@@ -80,9 +82,10 @@
                 <span class="tag">HTML</span>
                 <span class="tag">SQL</span>
               </div>
+              <span class="project-more">Voir le détail</span>
             </article>
 
-            <article class="card project-card accent-gold reveal" data-category="software">
+            <article class="card project-card accent-gold reveal" data-category="software" data-project="raspberry" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="project-dialog">
               <div class="project-meta">2023-2024 · BUT 1</div>
               <h3>Mini-ordinateur Raspberry Pi</h3>
               <p>Installation, configuration et optimisation d’un mini-ordinateur, avec une approche système concrète et orientée usage.</p>
@@ -91,9 +94,10 @@
                 <span class="tag">Système</span>
                 <span class="tag">Architecture</span>
               </div>
+              <span class="project-more">Voir le détail</span>
             </article>
 
-            <article class="card project-card accent-green reveal" data-category="data">
+            <article class="card project-card accent-green reveal" data-category="data" data-project="database" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="project-dialog">
               <div class="project-meta">2023-2024 · BUT 1</div>
               <h3>Base de données client</h3>
               <p>Modélisation et exploitation d’une base simulant les interactions client au sein d’une entreprise: requêtes, structuration et analyse.</p>
@@ -102,9 +106,10 @@
                 <span class="tag">Modélisation</span>
                 <span class="tag">Requêtes</span>
               </div>
+              <span class="project-more">Voir le détail</span>
             </article>
 
-            <article class="card project-card accent-blue reveal" data-category="web">
+            <article class="card project-card accent-blue reveal" data-category="web" data-project="school" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="project-dialog">
               <div class="project-meta">2023-2024 · BUT 1</div>
               <h3>Site pour une école fictive</h3>
               <p>Création d’un site HTML/CSS avec structuration du contenu, design d’interface et adaptation aux besoins d’un établissement fictif.</p>
@@ -113,10 +118,43 @@
                 <span class="tag">CSS</span>
                 <span class="tag">Interface</span>
               </div>
+              <span class="project-more">Voir le détail</span>
             </article>
           </div>
         </div>
       </section>
+
+      <div class="project-overlay" data-project-overlay hidden>
+        <div id="project-dialog" class="project-dialog" role="dialog" aria-modal="true" aria-labelledby="project-dialog-title" tabindex="-1">
+          <button class="project-close" type="button" data-project-close aria-label="Fermer le détail du projet">×</button>
+          <article class="project-dialog-card" data-project-dialog-card>
+            <div class="project-dialog-head">
+              <p class="project-dialog-kicker" data-project-kicker></p>
+              <h2 id="project-dialog-title" data-project-title></h2>
+              <p data-project-summary></p>
+            </div>
+            <div class="project-detail-grid">
+              <section>
+                <h3>Contexte</h3>
+                <p data-project-context></p>
+              </section>
+              <section>
+                <h3>Rôle</h3>
+                <p data-project-role></p>
+              </section>
+              <section>
+                <h3>Approche</h3>
+                <ul data-project-approach></ul>
+              </section>
+              <section>
+                <h3>Résultat</h3>
+                <p data-project-result></p>
+              </section>
+            </div>
+            <div class="tag-list" data-project-tags></div>
+          </article>
+        </div>
+      </div>
     </main>
 
     <footer class="site-footer">

@@ -36,6 +36,12 @@ const translations = {
     "Web": "Web",
     "Logiciel": "Software",
     "Data": "Data",
+    "Voir le détail": "View details",
+    "Fermer le détail du projet": "Close project details",
+    "Contexte": "Context",
+    "Rôle": "Role",
+    "Approche": "Approach",
+    "Résultat": "Result",
     "Filtrer les projets": "Filter projects",
     "Détection automatique de cartes de bridge": "Automatic bridge card detection",
     "Système combinant vision par ordinateur, IA et traitement vidéo pour enregistrer et analyser des parties de bridge à la demande d’un client.": "A system combining computer vision, AI and video processing to record and analyze bridge games for a client.",
@@ -265,6 +271,11 @@ const setLanguage = (lang) => {
   updateCvLinks(lang);
   updateMapWidgetsLanguage();
 
+  const openProject = getActiveProject();
+  if (openProject && projectOverlay && !projectOverlay.hidden) {
+    fillProjectDialog(openProject);
+  }
+
   if (typeof renderQuestion === "function") {
     renderQuestion();
   }
@@ -424,6 +435,309 @@ filterButtons.forEach((button) => {
       card.hidden = filter !== "all" && card.dataset.category !== filter;
     });
   });
+});
+
+
+
+const projectDetails = {
+  bridge: {
+    fr: {
+      meta: "BUT Informatique 3e année · 2025-2026",
+      title: "Détection automatique de cartes à jouer",
+      summary: "Développement d’un système combinant vision par ordinateur, intelligence artificielle et traitement vidéo pour enregistrer et analyser des parties de bridge à la demande d’un client.",
+      context: "Le projet répond à un besoin client: automatiser l’observation d’une partie de bridge afin de reconnaître les cartes jouées, conserver les informations importantes et faciliter l’analyse après la partie.",
+      role: "Participation au développement du système, à la logique de traitement vidéo, à l’organisation des données et à l’interface de restitution.",
+      approach: ["Utilisation de Python pour traiter les flux vidéo et préparer les images exploitables.", "Intégration de mécanismes d’IA et de vision par ordinateur pour reconnaître les cartes.", "Interface HTML pour afficher les résultats et base de données pour enregistrer les informations détectées."],
+      result: "Un projet complet qui relie IA, vidéo, interface web et stockage de données autour d’un cas d’usage concret.",
+      tags: ["Python", "IA", "Traitement vidéo", "HTML", "Base de données"]
+    },
+    en: {
+      meta: "Computer Science degree Year 3 · 2025-2026",
+      title: "Automatic playing-card detection",
+      summary: "Development of a system combining computer vision, artificial intelligence and video processing to record and analyze bridge games for a client.",
+      context: "The project answers a client need: automate the observation of a bridge game, recognize played cards, keep important information and make post-game analysis easier.",
+      role: "Contribution to system development, video processing logic, data organization and the result interface.",
+      approach: ["Using Python to process video streams and prepare usable images.", "Integrating AI and computer vision mechanisms to recognize cards.", "HTML interface to display results and a database to store detected information."],
+      result: "A complete project connecting AI, video, web interface and data storage around a concrete use case.",
+      tags: ["Python", "AI", "Video processing", "HTML", "Database"]
+    }
+  },
+  jo2024: {
+    fr: {
+      meta: "BUT Informatique 2e année · 2024-2025",
+      title: "Application de gestion des Jeux Olympiques 2024",
+      summary: "Conception et développement d’une application Java incluant la planification, la gestion des données et un travail complet de gestion de projet informatique.",
+      context: "Le sujet imposait de gérer un événement dense, avec des informations variées à organiser et des fonctionnalités orientées planning et suivi.",
+      role: "Conception des fonctionnalités, développement Java, structuration des données et participation à l’organisation du projet.",
+      approach: ["Définition des besoins et des principales fonctionnalités de gestion.", "Développement de la logique applicative en Java.", "Organisation du travail en projet avec suivi, répartition des tâches et amélioration progressive."],
+      result: "Une application qui met en avant la conception logicielle, la gestion de données et la conduite de projet.",
+      tags: ["Java", "Planification", "Gestion de données", "Projet"]
+    },
+    en: {
+      meta: "Computer Science degree Year 2 · 2024-2025",
+      title: "2024 Olympic Games management app",
+      summary: "Design and development of a Java application including scheduling, data management and complete IT project management work.",
+      context: "The topic required managing a dense event with varied information to organize and scheduling-focused features.",
+      role: "Feature design, Java development, data structuring and contribution to project organization.",
+      approach: ["Defining needs and main management features.", "Developing application logic in Java.", "Project work with tracking, task distribution and progressive improvement."],
+      result: "An application highlighting software design, data management and project work.",
+      tags: ["Java", "Scheduling", "Data management", "Project"]
+    }
+  },
+  vote: {
+    fr: {
+      meta: "BUT Informatique 2e année · 2024-2025",
+      title: "Site de vote sur des propositions de loi",
+      summary: "Réalisation d’un site web avec base de données permettant aux utilisateurs de voter sur des propositions de loi.",
+      context: "Le projet était centré sur les interactions utilisateurs: consulter une proposition, voter, enregistrer l’action et restituer les données proprement.",
+      role: "Développement des pages, gestion des interactions, connexion à la base de données et stockage des votes.",
+      approach: ["Développement en PHP et HTML.", "Mise en place du stockage des propositions et des votes.", "Gestion des échanges entre interface, serveur et base de données."],
+      result: "Un site dynamique qui montre la capacité à relier interface web, logique serveur et persistance des données.",
+      tags: ["PHP", "HTML", "Base de données", "Interactions utilisateurs"]
+    },
+    en: {
+      meta: "Computer Science degree Year 2 · 2024-2025",
+      title: "Voting website for proposed laws",
+      summary: "Creation of a database-backed website allowing users to vote on proposed laws.",
+      context: "The project focused on user interactions: reading a proposal, voting, saving the action and presenting data clearly.",
+      role: "Page development, interaction handling, database connection and vote storage.",
+      approach: ["Development in PHP and HTML.", "Storage setup for proposals and votes.", "Managing exchanges between interface, server and database."],
+      result: "A dynamic website showing the ability to connect web interface, server logic and data persistence.",
+      tags: ["PHP", "HTML", "Database", "User interactions"]
+    }
+  },
+  raspberry: {
+    fr: {
+      meta: "BUT Informatique 1re année · 2023-2024",
+      title: "Mini-ordinateur Raspberry Pi",
+      summary: "Conception et configuration d’un mini-ordinateur basé sur Raspberry Pi, avec installation système, paramétrage et optimisation.",
+      context: "Projet pratique pour manipuler un environnement complet, de l’installation à l’usage final.",
+      role: "Installation du système, configuration des paramètres et vérification du bon fonctionnement.",
+      approach: ["Préparation du Raspberry Pi et du système.", "Paramétrage des éléments nécessaires à l’utilisation.", "Optimisation et correction des problèmes rencontrés."],
+      result: "Une expérience concrète autour du système, du matériel et de l’autonomie technique.",
+      tags: ["Raspberry Pi", "Système", "Paramétrage", "Optimisation"]
+    },
+    en: {
+      meta: "Computer Science degree Year 1 · 2023-2024",
+      title: "Raspberry Pi mini-computer",
+      summary: "Design and configuration of a Raspberry Pi mini-computer, including system installation, setup and optimization.",
+      context: "Hands-on project for working with a complete environment, from installation to final use.",
+      role: "System installation, settings configuration and functionality checks.",
+      approach: ["Preparing the Raspberry Pi and system.", "Configuring the elements required for use.", "Optimization and issue fixing."],
+      result: "Concrete experience with systems, hardware and technical autonomy.",
+      tags: ["Raspberry Pi", "System", "Setup", "Optimization"]
+    }
+  },
+  database: {
+    fr: {
+      meta: "BUT Informatique 1re année · 2023-2024",
+      title: "Base de données client",
+      summary: "Mise en place d’une base de données simulant l’interaction client en entreprise.",
+      context: "Le projet consistait à représenter des données client cohérentes, les structurer, puis les exploiter avec des requêtes SQL.",
+      role: "Modélisation de la base, écriture des requêtes et exploitation des résultats.",
+      approach: ["Identification des entités et relations utiles.", "Création d’un modèle de données adapté au scénario.", "Requêtes SQL pour consulter, croiser et analyser les données."],
+      result: "Un projet solide pour travailler la modélisation, les requêtes et le raisonnement sur les données.",
+      tags: ["SQL", "Modélisation", "Requêtes", "Exploitation des données"]
+    },
+    en: {
+      meta: "Computer Science degree Year 1 · 2023-2024",
+      title: "Customer database",
+      summary: "Setup of a database simulating customer interactions in a company.",
+      context: "The project represented coherent customer data, structured it and used it through SQL queries.",
+      role: "Database modeling, query writing and result usage.",
+      approach: ["Identifying useful entities and relationships.", "Creating a data model adapted to the scenario.", "SQL queries to browse, combine and analyze data."],
+      result: "A solid project for practicing modeling, queries and data reasoning.",
+      tags: ["SQL", "Modeling", "Queries", "Data usage"]
+    }
+  },
+  school: {
+    fr: {
+      meta: "BUT Informatique 1re année · 2023-2024",
+      title: "Site web pour une école fictive",
+      summary: "Création d’un site web en HTML/CSS avec conception de l’interface et structuration du contenu.",
+      context: "Le projet demandait de créer une présentation crédible pour un établissement fictif, avec une navigation claire et des contenus bien hiérarchisés.",
+      role: "Conception de l’interface, création des pages HTML et mise en forme CSS.",
+      approach: ["Organisation des rubriques importantes.", "Travail sur la lisibilité, les espacements et la structure visuelle.", "Adaptation du contenu aux besoins d’une école fictive."],
+      result: "Un premier projet web utile pour consolider HTML, CSS et les bases de conception d’interface.",
+      tags: ["HTML", "CSS", "Interface", "Structuration"]
+    },
+    en: {
+      meta: "Computer Science degree Year 1 · 2023-2024",
+      title: "Website for a fictional school",
+      summary: "Creation of an HTML/CSS website with interface design and content structuring.",
+      context: "The project required a credible presentation for a fictional school, with clear navigation and well-organized content.",
+      role: "Interface design, HTML page creation and CSS styling.",
+      approach: ["Organizing important sections.", "Working on readability, spacing and visual structure.", "Adapting content to a fictional school’s needs."],
+      result: "An early web project useful for strengthening HTML, CSS and interface design basics.",
+      tags: ["HTML", "CSS", "Interface", "Structure"]
+    }
+  }
+};
+
+const projectOverlay = document.querySelector("[data-project-overlay]");
+const projectDialog = document.querySelector(".project-dialog");
+const projectDialogCard = document.querySelector("[data-project-dialog-card]");
+const projectClose = document.querySelector("[data-project-close]");
+const projectInteractiveElements = "a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])";
+let activeProjectCard = null;
+let projectAnimationFrame = 0;
+
+const getActiveProject = () => {
+  if (!activeProjectCard) {
+    return null;
+  }
+
+  return projectDetails[activeProjectCard.dataset.project] || null;
+};
+
+const fillProjectDialog = (project) => {
+  const data = project[currentLanguage] || project.fr;
+  const setText = (selector, value) => {
+    document.querySelectorAll(selector).forEach((element) => {
+      element.textContent = value;
+    });
+  };
+
+  setText("[data-project-kicker]", data.meta);
+  setText("[data-project-title]", data.title);
+  setText("[data-project-summary]", data.summary);
+  setText("[data-project-context]", data.context);
+  setText("[data-project-role]", data.role);
+  setText("[data-project-result]", data.result);
+
+  const approach = document.querySelector("[data-project-approach]");
+  if (approach) {
+    approach.replaceChildren(
+      ...data.approach.map((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        return li;
+      })
+    );
+  }
+
+  const tags = document.querySelector("[data-project-tags]");
+  if (tags) {
+    tags.replaceChildren(
+      ...data.tags.map((tag) => {
+        const item = document.createElement("span");
+        item.className = "tag";
+        item.textContent = tag;
+        return item;
+      })
+    );
+  }
+};
+
+const syncProjectCardState = (openedCard = null) => {
+  document.querySelectorAll("[data-project]").forEach((card) => {
+    const isOpen = card === openedCard;
+    card.setAttribute("aria-expanded", String(isOpen));
+  });
+};
+
+const setProjectAccent = (card) => {
+  const accentClasses = ["accent-green", "accent-blue", "accent-coral", "accent-gold"];
+  projectDialogCard?.classList.remove(...accentClasses);
+
+  const accent = accentClasses.find((item) => card.classList.contains(item));
+  if (accent) {
+    projectDialogCard?.classList.add(accent);
+  }
+};
+
+const openProjectDialog = (card) => {
+  if (!projectOverlay || !projectDialog) {
+    return;
+  }
+
+  const project = projectDetails[card.dataset.project];
+  if (!project) {
+    return;
+  }
+
+  activeProjectCard = card;
+  fillProjectDialog(project);
+  setProjectAccent(card);
+  syncProjectCardState(card);
+  projectOverlay.hidden = false;
+  projectOverlay.classList.remove("is-opening");
+
+  cancelAnimationFrame(projectAnimationFrame);
+  projectAnimationFrame = requestAnimationFrame(() => {
+    if (!projectOverlay.hidden) {
+      projectOverlay.classList.add("is-opening");
+    }
+  });
+
+  document.body.classList.add("project-dialog-open");
+  projectDialog.focus({ preventScroll: true });
+};
+
+const closeProjectDialog = () => {
+  if (!projectOverlay || projectOverlay.hidden) {
+    return;
+  }
+
+  cancelAnimationFrame(projectAnimationFrame);
+  projectOverlay.hidden = true;
+  projectOverlay.classList.remove("is-opening");
+  document.body.classList.remove("project-dialog-open");
+  syncProjectCardState();
+  activeProjectCard?.focus();
+  activeProjectCard = null;
+};
+
+const keepProjectFocusInside = (event) => {
+  if (!projectDialog || !projectOverlay || projectOverlay.hidden || event.key !== "Tab") {
+    return;
+  }
+
+  const focusable = Array.from(projectDialog.querySelectorAll(projectInteractiveElements))
+    .filter((element) => element.offsetParent !== null);
+
+  if (!focusable.length) {
+    event.preventDefault();
+    projectDialog.focus();
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+};
+
+document.querySelectorAll("[data-project]").forEach((card) => {
+  card.addEventListener("click", () => openProjectDialog(card));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openProjectDialog(card);
+    }
+  });
+});
+
+projectClose?.addEventListener("click", closeProjectDialog);
+projectOverlay?.addEventListener("click", (event) => {
+  if (event.target === projectOverlay) {
+    closeProjectDialog();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeProjectDialog();
+    return;
+  }
+
+  keepProjectFocusInside(event);
 });
 
 const quizQuestionsByLanguage = {
