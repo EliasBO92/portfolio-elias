@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Elias Ben-Othman | Portfolio</title>
-    <meta name="description" content="Portfolio d'Elias Ben-Othman, étudiant en BUT Informatique à Paris-Saclay.">
+    <meta name="description" content="Portfolio d'Elias Ben-Othman, alternant en Master Cybersécurité et Sciences des données.">
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Space+Grotesk:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=6">
-    <script src="js/main.js?v=4" defer></script>
+    <link rel="stylesheet" href="css/styles.css?v=23">
+    <script src="js/main.js?v=22" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -31,9 +31,9 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow">BUT Informatique · Paris-Saclay</p>
-            <h1>Développeur junior qui aime comprendre avant de construire.</h1>
-            <p class="hero-lead">Je m’appelle Elias, j’ai 22 ans et je suis en troisième année de BUT Informatique à l’IUT d’Orsay. Je travaille sur des projets web, data, IA et logiciels avec une préférence pour les interfaces claires et les systèmes qui ont du sens.</p>
+            <p class="eyebrow">Master Cybersécurité & Data · Paris 8</p>
+            <h1>Alternant en cybersécurité et data, avec un socle solide en développement</h1>
+            <p class="hero-lead">Je m’appelle Elias, j’ai 22 ans et je prépare un Master 1 Cybersécurité et Sciences des données à l’Université Paris 8 Vincennes-Saint-Denis, en alternance chez Auxia - Malakoff Humanis. Mon parcours relie développement logiciel, data, cybersécurité et projets concrets.</p>
             <div class="hero-actions">
               <a class="button primary" href="#questionnaire">Me découvrir</a>
               <a class="button secondary" href="assets/docs/cv-elias-ben-othman-fr.pdf" data-cv-link download="CV-Elias-Ben-Othman-FR.pdf">Télécharger le CV</a>
@@ -48,14 +48,14 @@
               </div>
               <div>
                 <h2>Elias Ben-Othman</h2>
-                <p>Étudiant en informatique, basé en Île-de-France.</p>
+                <p>Alternant en informatique, basé en Île-de-France.</p>
               </div>
             </div>
             <div class="facts">
-              <div class="fact"><span>Formation</span><span>BUT Informatique 3e année</span></div>
-              <div class="fact"><span>Université</span><span>Paris-Saclay</span></div>
-              <div class="fact"><span>Focus</span><span>Web · IA · SQL</span></div>
-              <div class="fact"><span>Langues</span><span>FR · EN · ES</span></div>
+              <div class="fact"><span>Formation</span><span>Master 1 Cybersécurité & Data</span></div>
+              <div class="fact"><span>Alternance</span><span>Auxia · Malakoff Humanis</span></div>
+              <div class="fact"><span>Focus</span><span>Data · Cyber · Dev</span></div>
+              <div class="fact"><span>Langues</span><span>FR · EN B1/B2 · ES B1</span></div>
             </div>
           </aside>
         </div>
@@ -63,7 +63,52 @@
 
       <section id="questionnaire" class="quiz" data-quiz>
         <div class="container">
-          <div class="quiz-shell reveal">
+          <div class="quiz-choice reveal" data-quiz-choice>
+            <div>
+              <p class="eyebrow">Découverte rapide</p>
+              <h2>Tu veux faire le quiz ?</h2>
+              <p>Tu peux apprendre à me connaître avec quelques questions, ou afficher directement les informations essentielles.</p>
+            </div>
+            <div class="quiz-choice-actions">
+              <button class="button primary" type="button" data-start-quiz>Faire le quiz</button>
+              <button class="button secondary" type="button" data-show-profile>Voir mes infos</button>
+            </div>
+          </div>
+
+          <div class="about-snapshot reveal" data-profile-summary hidden>
+            <div class="section-head compact">
+              <h2>Mes infos essentielles</h2>
+              <p>Un profil orienté développement, données et cybersécurité, avec une vraie curiosité pour les environnements techniques et internationaux.</p>
+            </div>
+            <div class="grid three">
+              <article class="card accent-green">
+                <h3>Langues</h3>
+                <div class="tag-list">
+                  <span class="tag">Français langue maternelle</span>
+                  <span class="tag">Anglais B1/B2</span>
+                  <span class="tag">Espagnol B1</span>
+                </div>
+              </article>
+              <article class="card accent-green">
+                <h3>Centres d’intérêt</h3>
+                <div class="tag-list">
+                  <span class="tag">Football</span>
+                  <span class="tag">Basketball</span>
+                  <span class="tag">Fitness</span>
+                  <span class="tag">Musculation</span>
+                  <span class="tag">Art</span>
+                  <span class="tag">Cinéma</span>
+                  <span class="tag">Musique</span>
+                </div>
+              </article>
+              <article class="card accent-green">
+                <h3>Voyages</h3>
+                <p>Angleterre, Allemagne, Autriche, Algérie, Belgique, Canada, Chine, États-Unis, Émirats arabes unis, Italie, Maroc, Pays-Bas, Portugal, République tchèque et Tunisie.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="quiz-shell reveal" data-quiz-shell hidden>
             <div class="quiz-head">
               <div>
                 <p class="eyebrow">Questionnaire rapide</p>
@@ -87,25 +132,61 @@
           </div>
         </div>
       </section>
-
+      <section class="section personal-gallery-section">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Un aperçu plus personnel</h2>
+            <p>Quelques espaces pour montrer ce qui nourrit mon équilibre en dehors du code: voyages, sport, culture et moments qui racontent aussi une manière d’apprendre.</p>
+          </div>
+          <div class="personal-gallery">
+            <article class="gallery-tile is-large reveal">
+              <div class="gallery-photo travel-photo" aria-hidden="true">
+                <span>Voyages</span>
+              </div>
+              <div>
+                <h3>Voyages</h3>
+                <p>Une place pour quelques photos fortes: Chine, Canada, États-Unis, Émirats arabes unis, Europe ou Maghreb.</p>
+              </div>
+            </article>
+            <article class="gallery-tile reveal">
+              <div class="gallery-photo sport-photo" aria-hidden="true">
+                <span>Sport</span>
+              </div>
+              <div>
+                <h3>Sport</h3>
+                <p>Football, basketball, fitness et musculation: des habitudes qui gardent le rythme et la discipline.</p>
+              </div>
+            </article>
+            <article class="gallery-tile reveal">
+              <div class="gallery-photo culture-photo" aria-hidden="true">
+                <span>Culture</span>
+              </div>
+              <div>
+                <h3>Culture</h3>
+                <p>Art, cinéma et musique: des repères personnels qui ajoutent de la curiosité au profil technique.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
       <section class="section alt">
         <div class="container">
           <div class="section-head reveal">
-            <h2>Ce que je peux apporter.</h2>
-            <p>Un profil encore en formation, mais déjà habitué à passer de l’idée au prototype: comprendre le besoin, organiser les données, coder proprement et présenter le résultat.</p>
+            <h2>Ce que je peux apporter</h2>
+            <p>Un profil qui relie développement, données et cybersécurité: comprendre le besoin, structurer l’information, coder avec méthode et livrer un résultat clair.</p>
           </div>
           <div class="grid three">
             <article class="card accent-green reveal">
               <h3>Développement logiciel</h3>
-              <p>Deux stages chez Auxia dans la même équipe, avec progression, logique applicative et découverte des exigences d’un environnement professionnel.</p>
+              <p>Alternance chez Auxia - Malakoff Humanis, après deux stages dans la même structure: continuité, autonomie et compréhension progressive d’un environnement logiciel métier.</p>
             </article>
             <article class="card accent-blue reveal">
               <h3>Recherche & signaux</h3>
-              <p>Stage au Laboratoire Images, Signaux & Systèmes Intelligents, avec un contexte technique lié à l’analyse et aux systèmes intelligents.</p>
+              <p>Expérience en recherche au LISSI puis à Xidian University, sur des sujets liés aux systèmes intelligents, à la co-simulation 6G/V2X et aux véhicules connectés.</p>
             </article>
             <article class="card accent-coral reveal">
               <h3>Contact & terrain</h3>
-              <p>Expériences chez Monoprix et Paul: relation client, autonomie, rythme d’équipe et sens du service.</p>
+              <p>Expériences terrain chez Monoprix et Paul: contact client, rythme d’équipe, polyvalence et sens du service.</p>
             </article>
           </div>
         </div>
